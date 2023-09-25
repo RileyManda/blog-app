@@ -74,9 +74,15 @@
   </ul>
 </details>
 
-<summary>Database</summary>
+<summary>Ruby ORM</summary>
   <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+    <li><a href="https://www.mysql.com/">PSQL</a></li>
+  </ul>
+</details>
+
+<summary>ORM</summary>
+  <ul>
+    <li><a href="https://guides.rubyonrails.org/active_record_basics.html">ORM</a></li>
   </ul>
 </details>
 
@@ -87,10 +93,16 @@
   </ul>
 </details>
 
+
+
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 > Data Model
+
+> associations between models
+
+> SQL queries with Active Record
 
 
 <!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
@@ -138,11 +150,17 @@ Install this project with:
 
 ### Usage
 
+Configure your database settings in config/database.yml. Then run the following commands:
+
+```sh
+  rails db:create
+  rails db:migrate
+```
 To run the project, you will need to execute:
 
 
 ```sh
-  npm start or yarn start
+  rails server
 ```
 
 
@@ -152,7 +170,7 @@ To run tests, run the following command:
 
 
 ```sh
-  Rspec spec or bundle exec rspec spec
+  Rspec spec Filename_spec.rb
 ```
 
 
@@ -188,8 +206,12 @@ Example:
 ## 🔭 Future Features <a name="future-features"></a>
 
 
-Write postAdd comments to posts
-User Signin
+> User Authentication
+> Create Posts
+> Create Comments
+> Create Likes
+> Create Follows
+> User Profiles
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
