@@ -2,10 +2,8 @@
 
 one:
   name: MyString
-  photo: MyString
   bio: MyText
 
 two:
   name: MyString
-  photo: MyString
   bio: MyText
