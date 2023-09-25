@@ -5,9 +5,11 @@ one:
   text: MyText
   comments_counter: 1
   likes_counter: 1
+  user: one
 
 two:
   title: MyString
   text: MyText
   comments_counter: 1
   likes_counter: 1
+  user: two
