@@ -91,6 +91,8 @@
 
 ### Key Features <a name="key-features"></a>
 > Data Model
+> Validations
+> Model Spec-Tests
 
 
 <!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
