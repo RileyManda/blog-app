@@ -142,7 +142,7 @@ To run the project, you will need to execute:
 
 
 ```sh
-  npm start or yarn start
+  rails server
 ```
 
 
