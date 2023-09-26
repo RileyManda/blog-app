@@ -3,6 +3,12 @@ class Post < ApplicationRecord
   has_many :comments, foreign_key: 'post_id'
   has_many :likes, foreign_key: 'post_id'
   after_save :update_post_counter
+  # Title must not be blank Title must not exceed 250 charactersr
+  validates :title, presence: true, length: { maximum: 250 }
+  # CommentsCounter must be an integer greater than or equal to zero.
+  validates :comments_counter, numericality: { greater_than_or_equal_to: 0, only_integer: true }
+  # LikesCounter must be an integer greater than or equal to zero
+  validates :likes_counter, numericality: { greater_than_or_equal_to: 0, only_integer: true }
 
   private
 

@@ -91,6 +91,8 @@
 
 ### Key Features <a name="key-features"></a>
 > Data Model
+> Validations
+> Model Spec-Tests
 
 
 <!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
@@ -142,7 +144,7 @@ To run the project, you will need to execute:
 
 
 ```sh
-  npm start or yarn start
+  rails server
 ```
 
 
