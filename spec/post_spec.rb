@@ -6,4 +6,9 @@ RSpec.describe Post, type: :model do
     post = Post.new(title: nil)
     expect(post).not_to be_valid
   end
+  # Title must not exceed 250 characters.
+  it 'title must not exceed 250 characters.' do
+    post = Post.new(title: 'a' * 251)
+    expect(post).not_to be_valid
+  end
 end
