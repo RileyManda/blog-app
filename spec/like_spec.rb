@@ -9,4 +9,9 @@ RSpec.describe Like, type: :model do
     expect(like).not_to be_valid
     expect(like.errors[:post]).to include('must exist')
   end
+  it 'should not like a post without a user' do
+    like = Like.new
+    expect(like).not_to be_valid
+    expect(like.errors[:user]).to include('must exist')
+  end
 end
