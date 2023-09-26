@@ -17,4 +17,9 @@ RSpec.describe Post, type: :model do
     post = Post.new(title: 'test', comments_counter: -1)
     expect(post).not_to be_valid
   end
+  # LikesCounter must be an integer greater than or equal to zero.
+  it 'likesCounter must be an integer greater than or equal to zero' do
+    post = Post.new(title: 'test', likes_counter: -1)
+    expect(post).not_to be_valid
+  end
 end
