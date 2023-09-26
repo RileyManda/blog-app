@@ -7,6 +7,8 @@ class Post < ApplicationRecord
   validates :title, presence: true, length: { maximum: 250 }
   # CommentsCounter must be an integer greater than or equal to zero.
   validates :comments_counter, numericality: { greater_than_or_equal_to: 0, only_integer: true }
+  # LikesCounter must be an integer greater than or equal to zero
+  validates :likes_counter, numericality: { greater_than_or_equal_to: 0, only_integer: true }
 
   private
 
