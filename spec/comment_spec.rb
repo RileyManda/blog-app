@@ -12,12 +12,12 @@ RSpec.describe Comment, type: :model do
     comment = Comment.new(text: 'test')
     expect(comment.text).to eq('test')
   end
-
+# is valid with valid attributes
   it 'is valid with valid attributes' do
     comment = Comment.new(user:, post:, text: 'A valid comment')
     expect(comment).to be_valid
   end
-
+# is not valid without a post
   it 'is not valid without a post' do
     post = Post.create(author: user, title: 'My Post', text: 'This is my post')
     comment = Comment.new(user:, text: 'Comment without a post', post:)
