@@ -38,7 +38,7 @@
 
 # 📖 [BlogApp] <a name="about-project"></a>
 
-> BlogApp application is…
+> BlogApp application is an application that enables users to creatr and update posts. It is built with Ruby on Rails and PostgresSQL.
 
 
 ## 🛠 Built With <a name="built-with"></a>
