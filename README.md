@@ -81,9 +81,16 @@
 </details>
 
 <details>
-<summary>DB Language</summary>
+<summary>Postgresql</summary>
   <ul>
     <li><a href="https://www.mysql.com/">PSQL</a></li>
+  </ul>
+</details>
+
+<details>
+<summary>Testing</summary>
+  <ul>
+    <li><a href="https://www.mysql.com/">RSpec-Rails</a></li>
   </ul>
 </details>
 
@@ -190,7 +197,8 @@ Example:
 ## 🔭 Future Features <a name="future-features"></a>
 
 
-Write postAdd comments to posts
+Write post
+Add comments to posts
 User Signin
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
