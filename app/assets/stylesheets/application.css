@@ -47,6 +47,7 @@
 
 .user-info h2 {
   margin: 0;
+  font-size: 30px;
 }
 
 .user-posts {
@@ -55,6 +56,10 @@
   align-items: flex-end;
 }
 
+.user-posts h2 {
+  margin: 0;
+  font-size: 30px;
+}
 .user-posts p {
   margin: 0;
 }
