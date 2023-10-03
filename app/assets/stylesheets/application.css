@@ -22,6 +22,7 @@
 :root {
   --application-background: #fff;
 }
+
 .user-item {
   display: flex;
   margin: 10px;
@@ -60,6 +61,7 @@
   margin: 0;
   font-size: 30px;
 }
+
 .user-posts p {
   margin: 0;
 }
@@ -93,6 +95,7 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
 /* posts */
 
 .posts {
