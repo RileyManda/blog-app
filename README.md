@@ -100,6 +100,11 @@
 > Data Model
 > Validations
 > Model Spec-Tests
+> Controller Specs
+> Create User
+> Create Post
+> Add a Comment Post
+> View Lists: Post List | User List | Comment List | Post Details
 
 
 <!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
