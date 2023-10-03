@@ -5,7 +5,9 @@
   </div>
   <div class="user-info">
     <h2><%= @user.name %></h2>
+    <div class="user-posts">
     <p>Number of Posts: <%= @user.posts_counter %></p>
+    </div>
   </div>
 </div>
 <div class="bio">
@@ -20,5 +22,10 @@
       <h3><%= post.title %></h3>
       <p><%= post.text %></p>
     </div>
+  <% end %>
+</div>
+<div class="all-posts-button">
+  <%= link_to user_posts_path(@user) do %>
+    <button>See all posts</button>
   <% end %>
 </div>
