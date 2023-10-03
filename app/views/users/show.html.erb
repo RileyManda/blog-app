@@ -1,15 +1,24 @@
-<h1>User details</h1>
-<div>
-  <%= image_tag @user.photo, alt: @user.name, width: '100' %>
-  <h2><%= @user.name %></h2>
-  <p>Number of Posts: <%= @user.posts_counter %></p>
-  <p>Bio: <%= @user.bio %></p>
-<ul>
+<h1>User Details</h1>
+<div class="user-item">
+  <div class="user-image">
+    <%= image_tag @user.photo, alt: @user.name, width: '100' %>
+  </div>
+  <div class="user-info">
+    <h2><%= @user.name %></h2>
+    <p>Number of Posts: <%= @user.posts_counter %></p>
+  </div>
+</div>
+<div class="bio">
+ <h2>Bio</h2>
+ <p><%= @user.bio %></p>
+ </div>
+
+<div class="posts">
+<h2>Posts</h2>
   <% @user.posts.each do |post| %>
-    <li>
+    <div class="post">
       <h3><%= post.title %></h3>
       <p><%= post.text %></p>
-    </li>
+    </div>
   <% end %>
-</ul>
 </div>

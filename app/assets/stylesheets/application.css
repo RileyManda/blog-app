@@ -22,25 +22,64 @@
 :root {
   --application-background: #fff;
 }
-
 .user-item {
   display: flex;
-  border: 1px solid #ccc;
   margin: 10px;
-  padding: 10px;
 }
 
-.user-item img {
-  border: 1px solid #000;
+.user-image {
+  border: 1px solid #ccc;
+  padding: 10px;
   margin-right: 10px;
+}
+
+.user-image img {
   width: 100px;
   height: auto;
 }
 
 .user-info {
   flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-left: 20px;
 }
 
 .user-info h2 {
+  margin: 0;
+}
+
+/* bio */
+
+.bio {
+  display: flex;
+  margin: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+
+}
+
+.bio h3 {
+  margin: 0;
+}
+
+/* posts */
+
+.posts {
+  display: flex;
+  margin: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.post {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.post h3 {
   margin: 0;
 }
