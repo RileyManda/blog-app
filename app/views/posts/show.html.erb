@@ -1,1 +1,17 @@
 <h1>Post Details</h1>
+<div>
+  <%= image_tag @user.photo, alt: @user.name, width: '100' %>
+  <h2><%= @user.name %></h2>
+  <p>Number of Posts: <%= @user.posts_counter %></p>
+  <p>Bio: <%= @user.bio %></p>
+<ul>
+  <% @user.posts.each do |post| %>
+    <li>
+      <h3><%= post.title %></h3>
+      <p><%= post.text %></p>
+    </li>
+  <% end %>
+</ul>
+</div>
+
+

@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :posts, only: [:index, :show] do
+  get '/users/:id', to: 'users#show', as: 'user'
+  resources :users do
+    resources :posts, only: [:index, :show] do
     resources :users, only: [:index, :show]
+end
 end
 end
