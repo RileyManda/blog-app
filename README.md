@@ -38,7 +38,7 @@
 
 # 📖 [BlogApp] <a name="about-project"></a>
 
-> BlogApp application is an application that enables users to creatr and update posts. It is built with Ruby on Rails and PostgresSQL.
+BlogApp is a web application that allows users to create, update, and interact with blog posts. It is built using Ruby on Rails and PostgreSQL as the database, and it includes comprehensive TDD (Test-Driven Development) implemented in RSpec.
 
 
 ## 🛠 Built With <a name="built-with"></a>
@@ -88,7 +88,7 @@
 </details>
 
 <details>
-<summary>Testing</summary>
+<summary>RSpec</summary>
   <ul>
     <li><a href="https://www.mysql.com/">RSpec-Rails</a></li>
   </ul>
@@ -202,9 +202,8 @@ Example:
 ## 🔭 Future Features <a name="future-features"></a>
 
 
-Write post
-Add comments to posts
-User Signin
+> Implement View
+> Implement Authentication for User Signing And Singout requests
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
