@@ -1,15 +1,10 @@
 <div class="post-details">
-  <p><%= @post.title %> by <%= @user.name %><p>
+  <p><%= @post.title %> by <%= @user.name %></p>
   <p><%= @post.text %></p>
   <div class="comment-likes-container">
-  <p>Comments:x</p>
-  <p>Likes:y</p>
+    <p>Comments: <%= @post.comments.count %></p>
+    <p>Likes: <%= @post.likes_count %></p>
+  </div>
 </div>
-</div>
-<ul>
-  <li>
-    <div class="comment-container">
-       <%= @user.name %>: Comment1
-    </div>
-  </li>
-</ul>
+  </div>
+<% end %>
