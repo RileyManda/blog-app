@@ -132,3 +132,12 @@
   align-items: flex-end;
   margin-top: -10px;
 }
+.pagination-button button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
