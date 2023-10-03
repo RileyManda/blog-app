@@ -144,17 +144,6 @@
   margin-bottom: 10px;
 }
 
-.post-details {
-  display: flex;
-  flex-direction: column;
-  margin: 10px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  justify-content: space-between;
-}
-
 .comment-likes-container {
   display: flex;
   justify-content: space-between;
@@ -177,12 +166,6 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-}
-
-.comment-likes-container {
-  display: flex;
-  justify-content: space-between;
-  align-self: flex-end;
 }
 
 ul {
