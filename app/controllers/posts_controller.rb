@@ -19,14 +19,19 @@ class PostsController < ApplicationController
 def create
   @user = User.find(params[:user_id])
   @post = current_user.posts.build(post_params)
+  @post.comments_counter = 0
+  @post.likes_counter = 0
+
   if @post.save
     flash[:success] = 'Post created successfully!'
-    redirect_to user_posts_path(@user) # Use @user 
+    redirect_to user_posts_path(@user)
   else
     flash[:error] = 'Error creating the post.'
+    puts @post.errors.full_messages # Log validation errors
     render 'new'
   end
 end
+
 
 
   def post_params
