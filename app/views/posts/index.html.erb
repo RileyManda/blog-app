@@ -11,7 +11,7 @@
 </div>
 <div class="posts">
   <ul>
-    <% @posts.each do |post| %>
+    <% @user.recent_posts.each do |post| %>
       <li>
         <div class="post">
           <h2><%= post.title %></h2>
