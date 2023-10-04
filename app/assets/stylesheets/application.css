@@ -109,6 +109,7 @@
 }
 
 .post {
+  flex-direction: row;
   padding: 10px;
   margin-bottom: 10px;
 }
@@ -117,6 +118,9 @@
   margin: 0;
 }
 
+.post-text {
+  margin-top: 10px;
+}
 
 .comments {
   display: flex;
@@ -124,6 +128,7 @@
   align-items: flex-end;
   margin-top: -10px;
 }
+
 .pagination-button button {
   display: block;
   margin: 0 auto;
@@ -143,21 +148,13 @@
   margin-top: 20px;
   margin-bottom: 10px;
 }
-.post-details {
-  display: flex;
-  flex-direction: column;
-  margin: 10px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  justify-content: space-between;
-}
 
 .comment-likes-container {
   display: flex;
   justify-content: space-between;
-  align-content: flex-end;
+  align-items: flex-end;
+  margin-top: 10px;
+  margin-left: 85%;
 }
 
 .post-details {
@@ -178,11 +175,6 @@
   align-items: flex-start;
 }
 
-.comment-likes-container {
-  display: flex;
-  justify-content: space-between;
-  align-self: flex-end;
-}
 ul {
   list-style: none;
   padding: 0;
