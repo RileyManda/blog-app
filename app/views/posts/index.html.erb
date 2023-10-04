@@ -5,39 +5,29 @@
   <div class="user-info">
     <h2><%= @user.name %></h2>
     <div class="user-posts">
-     <p>Number of Posts: <%= @user.posts_counter %></p>
-     </div>
+      <p>Number of Posts: <%= @user.posts_counter %></p>
+    </div>
   </div>
 </div>
-<div class="posts">
-  <ul>
-    <% @posts.each do |post| %>
-      <li>
-        <div class="post">
-          <h2><%= post.title %></h2>
-          <p><%= post.text %></p>
-          <div class="comment-likes-container">
-            <p>Comments: <%= post.comments.count %></p>
-            <p>Likes: y</p>
-          </div>
-          <% if post.comments.any? %>
-            <ul>
-              <% post.comments.each do |comment| %>
-                <li>
-                  <div class="comment-container">
-                   <p><strong><%= comment.user.name %>:</strong> <%= comment.text %></p>
-                  </div>
-                </li>
-              <% end %>
-            </ul>
-          <% else %>
-            <p>No comments for this post.</p>
-          <% end %>
-        </div>
-      </li>
-    <% end %>
-  </ul>
+<div class="bio">
+  <h2>Bio</h2>
+  <p><%= @user.bio %></p>
 </div>
-<div class="pagination-button">
-    <button>Pagination</button>
+
+<div class="posts">
+  <% @user.recent_posts.each do |post| %>
+    <div class="post">
+      <h3><%= post.title %></h3>
+      <p><%= post.text %></p>
+      <div class="comment-likes-container">
+        <p>Comments: <%= post.comments.count %></p>
+        <p>Likes: y</p>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="all-posts-button">
+  <%= link_to user_posts_path(@user) do %>
+    <button>See all posts</button>
+  <% end %>
 </div>
