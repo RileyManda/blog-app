@@ -4,6 +4,7 @@
   <div class="comment-likes-container">
     <p>Comments: <%= @post.comments.count %></p>
       <p>Likes: y</p>
+      <%= render 'likes/new', post: @post %>
   </div>
 </div>
 
