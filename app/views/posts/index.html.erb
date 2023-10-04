@@ -27,7 +27,6 @@
   <% end %>
 </div>
 <div class="all-posts-button">
-  <%= link_to user_posts_path(@user) do %>
-    <button>See all posts</button>
-  <% end %>
+  <%= link_to "Pagination", user_posts_path(@user, show_all: true) %>
+
 </div>

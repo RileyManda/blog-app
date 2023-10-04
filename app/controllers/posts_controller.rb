@@ -2,7 +2,11 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @user = User.find(params[:user_id])
-    @posts = @user.posts
+    @posts = if params[:show_all] == 'true'
+               @user.posts
+             else
+               @user.recent_posts
+             end
   end
 
   def show
