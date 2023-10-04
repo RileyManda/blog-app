@@ -102,19 +102,25 @@
   display: flex;
   flex-direction: column;
   margin: 10px;
-  border: 1px solid #ccc;
   padding: 10px;
   margin-top: 20px;
   margin-bottom: 10px;
 }
 
 .post {
+  flex-direction: row;
   padding: 10px;
   margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .post h3 {
   margin: 0;
+}
+
+.post-text {
+  margin-top: 10px;
 }
 
 .comments {
@@ -147,7 +153,9 @@
 .comment-likes-container {
   display: flex;
   justify-content: space-between;
-  align-content: flex-end;
+  align-items: flex-end;
+  margin-top: 10px;
+  margin-left: 85%;
 }
 
 .post-details {
