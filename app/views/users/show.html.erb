@@ -15,13 +15,14 @@
 </div>
 
 <div class="posts">
-  <% @user.posts.order(created_at: :desc).limit(3).each do |post| %>
+  <% @user.recent_posts.each do |post| %>
     <div class="post">
       <h3><%= post.title %></h3>
       <p><%= post.text %></p>
-       <div class="comment-likes-container">
-      <p>Comments: <%= post.comments.count %></p>
-      <p>Likes: y</p>
+      <div class="comment-likes-container">
+        <p>Comments: <%= post.comments.count %></p>
+        <p>Likes: y</p>
+      </div>
     </div>
   <% end %>
 </div>
