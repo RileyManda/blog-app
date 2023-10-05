@@ -5,7 +5,11 @@
   <%= button_to "Like this Post", user_post_likes_path(@user, @post), method: :post %>
     <p>Comments: <%= @post.comments.count %></p>
      <p>Likes: <%= @post.likes_counter %></p>
+
   </div>
+   <%= button_to "Add Comment", new_user_post_comment_path(@user, @post), method: :get %>
+
+
 </div>
 
 <div class="comment-container">
