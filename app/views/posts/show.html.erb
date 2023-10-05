@@ -2,9 +2,9 @@
   <p><strong><%= @post.title %></strong> by <%= @user.name %></p>
   <p><%= @post.text %></p>
   <div class="comment-likes-container">
-    <button class="like-button">Like</button>
+  <%= button_to "Like this Post", user_post_likes_path(@user, @post), method: :post %>
     <p>Comments: <%= @post.comments.count %></p>
-      <p>Likes: <%= @post.likes_counter %></p>
+     <p>Likes: <%= @post.likes_counter %></p>
   </div>
 </div>
 

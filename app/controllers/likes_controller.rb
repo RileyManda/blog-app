@@ -11,7 +11,7 @@ class LikesController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to user_post_path(@post.user, @post) }
+      format.html { redirect_to user_post_path(current_user, @post) }
       format.js
     end
   end
