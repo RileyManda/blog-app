@@ -30,4 +30,7 @@
   <%= link_to user_posts_path(@user) do %>
     <button>See all posts</button>
   <% end %>
+  <%= link_to new_user_post_path(@user), method: :get do %>
+    <button>Create Post</button>
+  <% end %>
 </div>

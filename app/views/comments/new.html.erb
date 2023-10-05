@@ -1,0 +1,9 @@
+<%= form_with(model: [@user, @post, @comment], url: user_post_comments_path(@user, @post)) do |form| %>
+  <div class="mb-3">
+    <%= form.label :text, class: "form-label" %>
+    <%= form.text_area :text, class: "form-control", placeholder: "Enter your comment here" %>
+  </div>
+  <div class="actions">
+    <%= form.submit "Add", class: "btn btn-primary" %>
+  </div>
+<% end %>
