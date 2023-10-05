@@ -18,13 +18,11 @@ class PostsController < ApplicationController
 
   def create
     @user = current_user
-    @post = Post.new(
-      author: @user,
-      title: params[:post][:title],
-      text: params[:post][:text],
-      comments_counter: 0,
-      likes_counter: 0
-    )
+    @post = @current_user.posts.new(author: @user,
+                                    title: params[:post][:title],
+                                    text: params[:post][:text],
+                                    comments_counter: 0,
+                                    likes_counter: 0)
 
     if @post.save
       flash[:success] = 'Post created successfully!'
