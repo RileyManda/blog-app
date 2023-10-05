@@ -2,9 +2,9 @@
   <p><strong><%= @post.title %></strong> by <%= @user.name %></p>
   <p><%= @post.text %></p>
   <div class="comment-likes-container">
+    <button class="like-button">Like</button>
     <p>Comments: <%= @post.comments.count %></p>
-      <p>Likes: y</p>
-      <%= render 'likes/new', post: @post %>
+      <p>Likes: <%= @post.likes_counter %></p>
   </div>
 </div>
 
