@@ -1,4 +1,3 @@
-TargetRubyVersion: 3.2
 AllCops:
   NewCops: enable
   Exclude:
