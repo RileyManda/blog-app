@@ -8,6 +8,7 @@ gem 'bootstrap', '~> 5.0'
 gem 'bootstrap_form', '~> 5.3'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.8'
+gem 'rubocop-rails'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
