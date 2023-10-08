@@ -1,14 +1,14 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
-# rubocop gem
-gem 'rubocop', '>= 1.0', '< 2.0'
 
 ruby '3.2.2'
-gem 'bootstrap', '~> 5.0'
-gem 'bootstrap_form', '~> 5.3'
+gem 'dotenv-rails', groups: %i[development test]
+gem 'rubocop', '>= 1.0', '< 2.0'
+
+gem 'rails-controller-testing'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.8'
-gem 'rubocop-rails'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
@@ -21,6 +21,8 @@ gem 'puma', '~> 5.0'
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem 'importmap-rails'
+
+gem 'psych', '~> 4.0'
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem 'turbo-rails'
@@ -51,11 +53,11 @@ gem 'bootsnap', require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
-gem 'rails-controller-testing'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'rspec-rails', '~> 6.0.0'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -72,5 +74,6 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '~> 4.13.1'
+  gem 'webdrivers'
 end

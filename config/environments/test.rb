@@ -51,6 +51,14 @@ Rails.application.configure do
 
   # Tell Active Support which deprecation messages to disallow.
   config.active_support.disallowed_deprecation_warnings = []
+  # config/environments/test.rb (or wherever you configure Webdrivers)
+
+# Webdrivers::Chromedriver.required_version = '114.0.4896.20' # Update with the correct version
+# Webdrivers::Chromedriver.download_url_base = "https://chromedriver.storage.googleapis.com/#{Webdrivers::Chromedriver.required_version}/"
+
+# # Specify the path to the manually downloaded ChromeDriver binary
+# Webdrivers::Chromedriver.driver_path = '/Users/rileymanda/Desktop/chromedriver_mac64'
+
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
