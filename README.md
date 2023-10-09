@@ -94,6 +94,14 @@ BlogApp is a web application that allows users to create, update, and interact w
   </ul>
 </details>
 
+<details>
+<summary>Capybara</summary>
+  <ul>
+    <li><a href="https://teamcapybara.github.io/capybara/">Capybara-Rails</a></li>
+  </ul>
+</details>
+
+
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
@@ -138,7 +146,7 @@ Clone this repository to your desired folder:
   cd my-folder
   git clone https://github.com/RileyManda/BlogApp.git
 ```
--
+
 
 ### Install
 
@@ -166,7 +174,7 @@ To run tests, run the following command:
 
 
 ```sh
-  Rspec spec or bundle exec rspec spec
+  Rspec spec  or bundle exec rspec spec
 ```
 
 
@@ -193,6 +201,12 @@ Example:
 - GitHub: [@RileyManda](https://github.com/RileyManda)
 - Twitter: [@rilecodez](https://twitter.com/rileycodez)
 - LinkedIn: [rileymanda](https://www.linkedin.com/in/rileymanda/)
+
+👤 **H-Ramalan**
+
+- GitHub: [@Hamza](https://github.com/H-Ramalan)
+- Twitter: [@hamza_ramalan](https://twitter.com/hamza_ramalan)
+- LinkedIn: [hamza](https://www.linkedin.com/in/hamza-ramalan/)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
