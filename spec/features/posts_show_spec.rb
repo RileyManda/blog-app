@@ -1,5 +1,6 @@
 require 'rails_helper'
-RSpec.feature 'User Show Page' do
+
+RSpec.feature 'Posts Show Page' do
   let(:users_data) do
     [
       { name: 'Minion',
@@ -58,15 +59,6 @@ RSpec.feature 'User Show Page' do
 
   scenario 'displays user bio' do
     expect(page).to have_content(users_data.first[:bio])
-  end
-
-  scenario 'displays a button to view all of a user\'s posts' do
-    expect(page).to have_link('See all posts', href: user_posts_path(User.first))
-  end
-
-  scenario 'redirects to the user\'s post index page when clicking to see all posts' do
-    click_link('See all posts')
-    expect(page).to have_current_path(user_posts_path(User.first))
   end
 
   private

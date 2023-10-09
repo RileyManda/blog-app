@@ -1,5 +1,6 @@
 require 'rails_helper'
-RSpec.feature 'User Show Page' do
+
+RSpec.feature 'Posts Index Page' do
   let(:users_data) do
     [
       { name: 'Minion',
@@ -39,32 +40,10 @@ RSpec.feature 'User Show Page' do
 
   before do
     create_users_and_posts
-    visit_user_show_page(User.first)
-  end
-
-  scenario 'displays users profile picture' do
-    users_data.each do |_users_data|
-      expect(page).to have_css("img[src*='profile-image']")
-    end
-  end
-
-  scenario 'displays user name' do
-    expect(page).to have_content(users_data.first[:name])
-  end
-
-  scenario 'displays number of posts user has written' do
-    expect(page).to have_content(users_data.first[:posts_counter])
-  end
-
-  scenario 'displays user bio' do
-    expect(page).to have_content(users_data.first[:bio])
-  end
-
-  scenario 'displays a button to view all of a user\'s posts' do
-    expect(page).to have_link('See all posts', href: user_posts_path(User.first))
   end
 
   scenario 'redirects to the user\'s post index page when clicking to see all posts' do
+    visit_user_show_page(User.first)
     click_link('See all posts')
     expect(page).to have_current_path(user_posts_path(User.first))
   end
@@ -80,14 +59,5 @@ RSpec.feature 'User Show Page' do
 
   def visit_user_show_page(user)
     visit user_path(user)
-  end
-
-  def expect_posts_to_be_displayed(posts)
-    posts.each do |post_data|
-      expect(page).to have_content(post_data[:title])
-      expect(page).to have_content(post_data[:text])
-      expect(page).to have_content("Comments: #{post_data[:comments_counter]}")
-      expect(page).to have_content("Likes: #{post_data[:likes_counter]}")
-    end
   end
 end

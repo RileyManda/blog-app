@@ -7,9 +7,12 @@
           <%= image_tag 'profile-image.png', alt: 'Profile Image' %>
         </div>
         <div class="user-info">
-          <h2><%= user.name %></h2>
+          <!-- Wrap the user's name in a link -->
+          <%= link_to user_path(user) do %>
+            <h2><%= user.name %></h2>
+          <% end %>
           <div class="user-posts">
-          <p>Number of Posts: <%= user.posts_counter %></p>
+            <p>Number of Posts: <%= user.posts_counter %></p>
           </div>
         </div>
       </div>
