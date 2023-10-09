@@ -52,6 +52,7 @@ Rails.application.configure do
   # Tell Active Support which deprecation messages to disallow.
   config.active_support.disallowed_deprecation_warnings = []
   # config/environments/test.rb (or wherever you configure Webdrivers)
+  config.public_file_server.enabled = true
   config.assets.compile = true
 
 # Webdrivers::Chromedriver.required_version = '114.0.4896.20' # Update with the correct version
