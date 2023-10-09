@@ -7,7 +7,10 @@ RSpec.feature 'Users Index Page' do
         photo: 'profile-image.png',
         bio: 'The first user in the BlogApp application.',
         posts_counter: 2 },
-      { name: 'Riley', photo: 'profile-image.png', bio: 'A second user in the BlogApp application.', posts_counter: 2 }
+      { name: 'Riley',
+        photo: 'profile-image.png',
+        bio: 'A second user in the BlogApp application.',
+        posts_counter: 3 }
     ]
   end
 
@@ -20,10 +23,11 @@ RSpec.feature 'Users Index Page' do
     expect(page).to have_content('Users')
   end
 
-  scenario 'displays user information' do
+  scenario 'displays users information' do
     users_data.each do |user_data|
       expect(page).to have_content(user_data[:name])
       expect(page).to have_content(user_data[:posts_counter])
+      expect(page).to have_css("img[src*='profile-image']")
     end
   end
 end
