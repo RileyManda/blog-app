@@ -76,7 +76,15 @@ RSpec.feature 'Posts Index Page' do
   end
 
   # can see posts body
-# TODO: scenario 'can see a post\'s body' do
+  scenario 'can see a post\'s body' do
+    users_data.each_with_index do |user_data, index|
+      user = User.find_by(name: user_data[:name])
+      post_data = posts_data[index]
+      post = user.posts.create(title: post_data[:title], text: post_data[:text])
+      visit user_posts_path(user)
+      expect(page).to have_content(post.text)
+    end
+  end
 
 
   scenario 'can see the first comments on a post' do
