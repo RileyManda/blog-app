@@ -38,27 +38,79 @@ RSpec.feature 'Posts Show Page' do
     ]
   end
 
+  let(:comments_data) do
+    [
+      { text: 'This is a cool post' },
+      { text: 'Second comment on post 17' },
+      { text: '3rd comment on post 17' },
+      { text: '4th comment on post 17' },
+      { text: '5th comment on post 17' }
+
+    ]
+  end
+
   before do
     create_users_and_posts
     visit_user_show_page(User.first)
   end
-
-  scenario 'displays users profile picture' do
-    users_data.each do |_users_data|
-      expect(page).to have_css("img[src*='profile-image']")
+  scenario 'can see a post\'s title' do
+    users_data.each_with_index do |user_data, index|
+      user = User.find_by(name: user_data[:name])
+      post_data = posts_data[index]
+      post = user.posts.create(title: post_data[:title], text: post_data[:text])
+      visit user_posts_path(user)
+      expect(page).to have_content(post.title)
+    end
+  end
+  scenario 'can see who wrote the post' do
+    expect(page).to have_content(User.first.name)
+  end
+  scenario 'can see how many comments a post has' do
+    users_data.each_with_index do |user_data, index|
+      user = User.find_by(name: user_data[:name])
+      post_data = posts_data[index]
+      post = user.posts.create(title: post_data[:title], text: post_data[:text])
+      visit user_posts_path(user)
+      if post.comments.any?
+        expect(page).to have_content("Comments: #{post.comments.count}")
+      else
+        expect(page).to have_content('Comments: 0')
+      end
     end
   end
 
-  scenario 'displays user name' do
-    expect(page).to have_content(users_data.first[:name])
+  scenario 'I can see how many likes a post has' do
+    users_data.each_with_index do |user_data, index|
+      user = User.find_by(name: user_data[:name])
+      post_data = posts_data[index]
+      post = user.posts.create(title: post_data[:title], text: post_data[:text])
+      visit user_posts_path(user)
+      expect(page).to have_content("Likes: #{post.likes.count}")
+    end
   end
-
-  scenario 'displays number of posts user has written' do
-    expect(page).to have_content(users_data.first[:posts_counter])
+  scenario 'can see a post\'s body' do
+    users_data.each_with_index do |user_data, index|
+      user = User.find_by(name: user_data[:name])
+      post_data = posts_data[index]
+      post = user.posts.create(title: post_data[:title], text: post_data[:text])
+      visit user_posts_path(user)
+      expect(page).to have_content(post.text)
+    end
   end
+  scenario 'I can see the username of each commentor' do
+    users_data.each_with_index do |user_data, index|
+      user = User.find_by(name: user_data[:name])
+      post_data = posts_data[index]
+      post = user.posts.create(title: post_data[:title], text: post_data[:text])
 
-  scenario 'displays user bio' do
-    expect(page).to have_content(users_data.first[:bio])
+      visit user_posts_path(user)
+
+      next unless post.comments.any?
+
+      post.comments.each do |comment|
+        expect(page).to have_content(comment.user.name)
+      end
+    end
   end
 
   private

@@ -76,8 +76,7 @@ RSpec.feature 'Posts Index Page' do
   end
 
   # can see posts body
-# TODO: scenario 'can see a post\'s body' do
-
+  # TODO: scenario 'can see a post\'s body' do
 
   scenario 'can see the first comments on a post' do
     users_data.each_with_index do |user_data, index|
