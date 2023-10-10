@@ -74,14 +74,14 @@ RSpec.feature 'User Show Page' do
     expect(page).to have_link('See all posts', href: user_posts_path(User.first))
   end
 
-  scenario 'click on see all posts a users post, redirects to that user\'s post\'s index page' do
-    click_link('See all posts')
-    expect(page).to have_current_path(user_posts_path(User.first))
-  end
-
   scenario 'click on a user\'s post, redirects to that post\'s show page' do
     click_link(posts_data.first[:title])
     expect(page).to have_current_path(user_post_path(User.first, Post.find_by(title: posts_data.first[:title])))
+  end
+
+  scenario 'click on see all posts a users post, redirects to that user\'s post\'s index page' do
+    click_link('See all posts')
+    expect(page).to have_current_path(user_posts_path(User.first))
   end
 
   private

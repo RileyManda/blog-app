@@ -39,6 +39,10 @@
     <% end %>
   </ul>
 </div>
-<div class="pagination-button">
+<% if @user.posts.count > 3 %>
+  <div class="pagination-button">
     <button>Pagination</button>
-</div>
+  </div>
+<% end %>
+
+
