@@ -85,8 +85,6 @@ RSpec.feature 'Posts Index Page' do
       expect(page).to have_content(post.text)
     end
   end
-
-
   scenario 'can see the first comments on a post' do
     users_data.each_with_index do |user_data, index|
       user = User.find_by(name: user_data[:name])
@@ -138,6 +136,7 @@ RSpec.feature 'Posts Index Page' do
       expect(page).not_to have_selector('.pagination-button')
     end
   end
+
   scenario 'redirects to the user\'s post index page when clicking to see all posts' do
     visit_user_show_page(User.first)
     click_link('See all posts')
