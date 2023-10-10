@@ -32,13 +32,17 @@
             </ul>
           <% else %>
             <p>No comments for this post.</p>
-            
+
           <% end %>
         </div>
       </li>
     <% end %>
   </ul>
 </div>
-<div class="pagination-button">
+<% if @user.posts.count > 3 %>
+  <div class="pagination-button">
     <button>Pagination</button>
-</div>
+  </div>
+<% end %>
+
+

@@ -26,6 +26,8 @@ Metrics/ClassLength:
   Max: 150
 Metrics/BlockLength:
   AllowedMethods: ['describe']
+  Exclude:
+    - 'spec/**/*'
   Max: 30
 
 Style/Documentation:
