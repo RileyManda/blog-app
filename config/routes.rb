@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'users#index'
   get '/users/:id', to: 'users#show', as: 'user'
-
+  resources :posts
   resources :users do
     resources :posts, only: [:index, :show, :new, :create] do
       resources :comments, only: [:new, :create]

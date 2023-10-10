@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 RSpec.feature 'User Show Page' do
   let(:users_data) do
     [
@@ -42,31 +43,42 @@ RSpec.feature 'User Show Page' do
     visit_user_show_page(User.first)
   end
 
-  scenario 'displays users profile picture' do
+  scenario 'can see the users profile picture.' do
     users_data.each do |_users_data|
       expect(page).to have_css("img[src*='profile-image']")
     end
   end
 
-  scenario 'displays user name' do
+  scenario 'can see the users username.' do
     expect(page).to have_content(users_data.first[:name])
   end
 
-  scenario 'displays number of posts user has written' do
+  scenario 'can see the number of posts the user has written.' do
     expect(page).to have_content(users_data.first[:posts_counter])
   end
 
-  scenario 'displays user bio' do
+  scenario 'can see the users bio.' do
     expect(page).to have_content(users_data.first[:bio])
   end
 
-  scenario 'displays a button to view all of a user\'s posts' do
+  # can see the user's first 3 posts
+
+  scenario 'can see a button that lets me view all of a user\'s posts.' do
     expect(page).to have_link('See all posts', href: user_posts_path(User.first))
   end
 
-  scenario 'redirects to the user\'s post index page when clicking to see all posts' do
+  # When I click to see all posts, it redirects me to the user's post's index page.
+
+  scenario 'click on see all posts a users post, redirects to that user\'s post\'s index page' do
     click_link('See all posts')
     expect(page).to have_current_path(user_posts_path(User.first))
+  end
+
+  # When I click a user's post, it redirects me to that post's show page.
+
+  scenario 'click on a user\'s post, redirects to that post\'s show page' do
+    click_link(posts_data.first[:title])
+    expect(page).to have_current_path(user_post_path(User.first, Post.find_by(title: posts_data.first[:title])))
   end
 
   private
