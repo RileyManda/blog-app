@@ -113,6 +113,22 @@ RSpec.feature 'Posts Show Page' do
     end
   end
 
+  scenario 'I can see the comment each commentor left' do
+    users_data.each_with_index do |user_data, index|
+      user = User.find_by(name: user_data[:name])
+      post_data = posts_data[index]
+      post = user.posts.create(title: post_data[:title], text: post_data[:text])
+
+      visit user_posts_path(user)
+
+      next unless post.comments.any?
+
+      post.comments.each do |comment|
+        expect(page).to have_css('.comment-container li', text: "#{comment.user.name}: #{comment.text}")
+      end
+    end
+  end
+
   private
 
   def create_users_and_posts
