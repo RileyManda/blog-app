@@ -61,20 +61,14 @@ RSpec.feature 'User Show Page' do
     expect(page).to have_content(users_data.first[:bio])
   end
 
-  # can see the user's first 3 posts
-
   scenario 'can see a button that lets me view all of a user\'s posts.' do
     expect(page).to have_link('See all posts', href: user_posts_path(User.first))
   end
-
-  # When I click to see all posts, it redirects me to the user's post's index page.
 
   scenario 'click on see all posts a users post, redirects to that user\'s post\'s index page' do
     click_link('See all posts')
     expect(page).to have_current_path(user_posts_path(User.first))
   end
-
-  # When I click a user's post, it redirects me to that post's show page.
 
   scenario 'click on a user\'s post, redirects to that post\'s show page' do
     click_link(posts_data.first[:title])
