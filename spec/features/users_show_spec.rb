@@ -61,6 +61,15 @@ RSpec.feature 'User Show Page' do
     expect(page).to have_content(users_data.first[:bio])
   end
 
+  scenario 'I can see the user\'s first 3 posts.' do
+    user = User.first
+    visit user_path(user)
+    user.recent_posts.limit(3).each do |post|
+      expect(page).to have_content(post.title)
+      expect(page).to have_content(post.text)
+    end
+  end
+
   scenario 'can see a button that lets me view all of a user\'s posts.' do
     expect(page).to have_link('See all posts', href: user_posts_path(User.first))
   end

@@ -40,12 +40,29 @@ RSpec.feature 'Posts Index Page' do
 
   before do
     create_users_and_posts
+    users_data.each do |user_data|
+      user = User.create(user_data)
+      posts_data.each do |post_data|
+        user.posts.create(post_data)
+      end
+    end
+    visit users_path
   end
 
   scenario 'redirects to the user\'s post index page when clicking to see all posts' do
     visit_user_show_page(User.first)
     click_link('See all posts')
     expect(page).to have_current_path(user_posts_path(User.first))
+  end
+
+  scenario 'can see a post\'s title' do
+    users_data.each_with_index do |user_data, index|
+      user = User.find_by(name: user_data[:name])
+      post_data = posts_data[index]
+      post = user.posts.create(title: post_data[:title], text: post_data[:text])
+      visit user_posts_path(user)
+      expect(page).to have_content(post.title)
+    end
   end
 
   private
