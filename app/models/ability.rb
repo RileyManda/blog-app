@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Ability
   include CanCan::Ability
 
@@ -7,8 +9,10 @@ class Ability
 
     an(:read, Post, user:)
     return unless user.admin?
-
-    can :read, Post
+    can :create, Post
+    can :remove, Post
+    # Define abilities for the user here. For example:
+    #
     #   return unless user.present?
     #   can :read, :all
     #   return unless user.admin?
