@@ -14,8 +14,6 @@
  *= require_self
  */
 * {
-  padding: 0;
-  margin: 0;
   box-sizing: border-box;
 }
 
@@ -180,4 +178,16 @@ ul {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+.view-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.field {
+  width: 100%;
 }
