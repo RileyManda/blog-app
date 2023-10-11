@@ -1,6 +1,10 @@
 <div class="user-item">
   <div class="user-image">
-    <%= image_tag @user.photo, alt: @user.name, width: '100' %>
+    <% if @user.photo.present? %>
+      <%= image_tag @user.photo, alt: @user.name, width: '100' %>
+    <% else %>
+      <%= image_tag 'profile-image.png', alt: @user.name, width: '100' %>
+    <% end %>
   </div>
   <div class="user-info">
     <h2><%= @user.name %></h2>
@@ -13,7 +17,6 @@
   <h2>Bio</h2>
   <p><%= @user.bio %></p>
 </div>
-
 <div class="posts">
   <% @user.recent_posts.each do |post| %>
     <div class="post">

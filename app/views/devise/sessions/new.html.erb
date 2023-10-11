@@ -1,0 +1,20 @@
+
+  <div class="view-container">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="mb-3">
+     <div class="form-contro"> <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Username" %></div>
+    </div>
+
+    <div class="mb-3">
+     <div class="form-contro"> <%= f.password_field :password, autocomplete: "current-password" %></div>
+    </div>
+
+    <div class="actions mb-3">
+      <div class="form-contro"> <%= f.submit "Log in", class: "btn btn-secondary" %></div>
+    </div>
+  <% end %>
+  <div>
+  <%= render "devise/shared/links" %>
+  </div>
+  </div>
+
