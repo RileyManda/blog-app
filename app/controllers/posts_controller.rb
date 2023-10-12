@@ -4,21 +4,24 @@ class PostsController < ApplicationController
     @posts = Post.all
     @user = User.find(params[:user_id])
     @posts = @user.posts
-     respond_to do |format|
+    respond_to do |format|
       format.html
       format.json { render json: @posts }
     end
   end
+
   def show
     @user = User.find(params[:user_id])
     @post = @user.posts.find(params[:id])
     @post = @user.posts.includes(comments: :user).find(params[:id])
     @comments = @post.comments
   end
+
   def new
     @user = User.find(params[:user_id])
     @post = @user.posts.build
   end
+
   def create
     @user = User.find(params[:user_id])
     @post = @user.posts.new(
@@ -35,9 +38,11 @@ class PostsController < ApplicationController
       render 'new'
     end
   end
+
   def post_params
     params.require(:post).permit(:title, :text)
   end
+
   def destroy
     @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
