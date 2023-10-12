@@ -22,15 +22,17 @@
   <div class=“post”>
    <h3><%= link_to post.title, user_post_path(@user, post) %>
 </h3>
-   <p><%= post.text %></p>
-   <div class=“comment-likes-container”>
-<div class=“actions mb-3”>
-  </div>
-    <p>Comments: <%= post.comments.count %></p>
-    <p>Likes: <%= post.likes.count %></p>
-   </div>
-  </div>
- <% end %>
+      <p><%= post.text %></p>
+      <div class="comment-likes-container">
+
+
+<div class="actions mb-3">
+    </div>
+        <p>Comments: <%= post.comments.count %></p>
+        <p>Likes: <%= post.likes.count %></p>
+      </div>
+    </div>
+  <% end %>
 </div>
 <div class=“all-posts-button”>
  <%= link_to user_posts_path(@user) do %>
