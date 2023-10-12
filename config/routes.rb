@@ -12,6 +12,6 @@ Rails.application.routes.draw do
     end
     get 'posts/new', to: 'posts#new', as: 'new_post'
     get 'comment', to: 'posts#comment_form', on: :member
-    delete 'users/:user_id/posts/:id', to: 'posts#destroy', as: 'user_post'
   end
+   delete 'users/:user_id/posts/:id', to: 'posts#destroy', as: 'member'
 end

@@ -9,9 +9,10 @@
 
   <%= button_to "Add Comment", new_user_post_comment_path(@user, @post), method: :get %>
 
- <% if can? :destroy, @post %>
-    <%= button_to "Delete Post", user_post_path(@user, @post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-  <% end %>
+<% if can? :destroy, @post %>
+  <%= button_to "Delete Post", user_post_path(@user, @post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+<% end %>
+
 </div>
 
 
