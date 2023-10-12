@@ -4,20 +4,21 @@ class PostsController < ApplicationController
     @posts = Post.all
     @user = User.find(params[:user_id])
     @posts = @user.posts
+     respond_to do |format|
+      format.html
+      format.json { render json: @posts }
+    end
   end
-
   def show
     @user = User.find(params[:user_id])
     @post = @user.posts.find(params[:id])
     @post = @user.posts.includes(comments: :user).find(params[:id])
     @comments = @post.comments
   end
-
   def new
     @user = User.find(params[:user_id])
     @post = @user.posts.build
   end
-
   def create
     @user = User.find(params[:user_id])
     @post = @user.posts.new(
@@ -26,7 +27,6 @@ class PostsController < ApplicationController
       comments_counter: 0,
       likes_counter: 0
     )
-
     if @post.save
       flash[:success] = 'Post created successfully!'
       redirect_to user_posts_path(@user)
@@ -35,23 +35,19 @@ class PostsController < ApplicationController
       render 'new'
     end
   end
-
   def post_params
     params.require(:post).permit(:title, :text)
   end
-
   def destroy
     @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
     @post.comments.destroy_all
     @post.likes.destroy_all
-
     if @post.destroy
       flash[:success] = 'Post deleted successfully!'
     else
       flash[:error] = 'Error deleting the Post.'
     end
-
     redirect_to user_posts_path(@user)
   end
 end
