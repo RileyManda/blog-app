@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
     get 'posts/new', to: 'posts#new', as: 'new_post'
     get 'comment', to: 'posts#comment_form', on: :member
-    # get '/users/:id/posts/:id/comments', to: 'comments#index', defaults: { format: 'json' }
+
 
   end
    delete 'users/:user_id/posts/:id', to: 'posts#destroy', as: 'member'
