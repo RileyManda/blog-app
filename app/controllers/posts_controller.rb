@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   def index
     @posts = Post.all
     @user = User.find(params[:user_id])
@@ -37,5 +38,20 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :text)
+  end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    @post = Post.find(params[:id])
+    @post.comments.destroy_all
+    @post.likes.destroy_all
+
+    if @post.destroy
+      flash[:success] = 'Post deleted successfully!'
+    else
+      flash[:error] = 'Error deleting the Post.'
+    end
+
+    redirect_to user_posts_path(@user)
   end
 end

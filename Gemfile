@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'bootstrap-sass'
 ruby '3.2.2'
+gem 'cancancan'
 gem 'dotenv-rails', groups: %i[development test]
 gem 'rubocop', '>= 1.0', '< 2.0'
 

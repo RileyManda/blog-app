@@ -2,22 +2,31 @@
   <p><strong><%= @post.title %></strong> by <%= @user.name %></p>
   <p><%= @post.text %></p>
   <div class="comment-likes-container">
-  <%= button_to "Like this Post", user_post_likes_path(@user, @post), method: :post %>
+    <%= button_to "Like", user_post_likes_path(@user, @post), method: :post %>
     <p>Comments: <%= @post.comments.count %></p>
-     <p>Likes: <%= @post.likes_counter %></p>
-
+    <p>Likes: <%= @post.likes_counter %></p>
   </div>
-   <%= button_to "Add Comment", new_user_post_comment_path(@user, @post), method: :get %>
 
+  <%= button_to "Add Comment", new_user_post_comment_path(@user, @post), method: :get %>
+
+<% if can? :destroy, @post %>
+  <%= button_to "Delete Post", user_post_path(@user, @post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+<% end %>
 
 </div>
+
 
 <div class="comment-container">
   <ul>
     <% @post.comments.each do |comment| %>
       <li>
-         <p><strong><%= comment.user.name %>:</strong> <%= comment.text %></p>
+        <p><strong><%= comment.user.name %>:</strong> <%= comment.text %></p>
+
+        <% if can? :destroy, comment %>
+          <%= button_to "Delete Comment", user_post_comment_path(@user, @post, comment), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        <% end %>
       </li>
     <% end %>
   </ul>
 </div>
+
