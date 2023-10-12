@@ -42,16 +42,11 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    if can? :destroy, @post
-      if @post.destroy
-        flash[:success] = 'Post deleted successfully!'
-      else
-        flash[:error] = 'Error deleting the post.'
-      end
+    if @post.destroy
+      flash[:success] = 'Post deleted successfully!'
     else
-      flash[:error] = 'You are not authorized to delete this post.'
+      flash[:error] = 'Error deleting the Post.'
     end
     redirect_to user_path(@user)
   end
-
 end
