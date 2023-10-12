@@ -1,9 +1,9 @@
 <div class=“user-item”>
  <div class=“user-image”>
   <% if @user.photo.present? %>
-   <%= image_tag @user.photo, alt: @user.name, width: ‘100’ %>
+   <%= image_tag @user.photo, alt: @user.name, width: '100' %>
   <% else %>
-   <%= image_tag ‘profile-image.png’, alt: @user.name, width: ‘100’ %>
+   <%= image_tag 'profile-image.png', alt: @user.name, width: '100' %>
   <% end %>
  </div>
  <div class=“user-info”>
