@@ -4,11 +4,6 @@ class PostsController < ApplicationController
     @posts = Post.all
     @user = User.find(params[:user_id])
     @posts = @user.posts
-
-    respond_to do |format|
-      format.html
-      format.json { render json: @posts }
-    end
   end
 
  def show
@@ -16,11 +11,6 @@ class PostsController < ApplicationController
     @post = @user.posts.find(params[:id])
     @post = @user.posts.includes(comments: :user).find(params[:id])
     @comments = @post.comments
-
-    respond_to do |format|
-      format.html
-      format.json { render json: @post }
-    end
   end
 
   def new
