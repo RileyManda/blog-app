@@ -5,6 +5,7 @@ ruby '3.2.2'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'cancancan'
 gem 'dotenv-rails', groups: %i[development test]
+gem 'rswag'
 gem 'rubocop', '>= 1.0', '< 2.0'
 
 gem 'rails-controller-testing'
