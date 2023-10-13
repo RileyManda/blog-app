@@ -1,0 +1,169 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/comments":
+    get:
+      summary: Retrieves all comments
+      tags:
+      - Comments
+      responses:
+        '200':
+          description: comments found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    id:
+                      type: integer
+                    text:
+                      type: string
+                  required:
+                  - id
+                  - text
+    post:
+      summary: Creates a comment
+      tags:
+      - Comments
+      parameters: []
+      responses:
+        '201':
+          description: comment created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                  example: This is a comment
+              required:
+              - text
+  "/api/v1/comments/{id}":
+    get:
+      summary: Retrieves a comment
+      tags:
+      - Comments
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: comment found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  text:
+                    type: string
+                required:
+                - id
+                - text
+        '404':
+          description: comment not found
+    delete:
+      summary: Deletes a comment
+      tags:
+      - Comments
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: comment deleted
+        '404':
+          description: comment not found
+  "/api/v1/users/{user_id}/posts":
+    get:
+      summary: Retrieves a list of posts for a user
+      tags:
+      - Posts
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: list of posts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    title:
+                      type: string
+                    text:
+                      type: string
+                    comments_counter:
+                      type: integer
+                    likes_counter:
+                      type: integer
+                  required:
+                  - id
+                  - title
+                  - text
+        '404':
+          description: user not found
+  "/api/v1/users/{user_id}/posts/{id}":
+    get:
+      summary: Retrieves a single post for a user
+      tags:
+      - Posts
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: post found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                  text:
+                    type: string
+                required:
+                - id
+                - title
+                - text
+        '404':
+          description: post not found
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
