@@ -16,4 +16,13 @@ Rails.application.routes.draw do
 
   end
    delete 'users/:user_id/posts/:id', to: 'posts#destroy', as: 'member'
+     namespace :api, defaults: { format: 'json' } do
+     namespace :v1 do
+       resources :users, only: [] do
+        resources :posts, only: [] do
+        resources :comments, only: [:index, :show, :create, :update, :destroy]
+      end
+    end
+  end
+  end
 end
