@@ -26,7 +26,6 @@ class PostsController < ApplicationController
       comments_counter: 0,
       likes_counter: 0
     )
-
     if @post.save
       flash[:success] = 'Post created successfully!'
       redirect_to user_posts_path(@user)
@@ -45,13 +44,11 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.comments.destroy_all
     @post.likes.destroy_all
-
     if @post.destroy
       flash[:success] = 'Post deleted successfully!'
     else
       flash[:error] = 'Error deleting the Post.'
     end
-
     redirect_to user_posts_path(@user)
   end
 end

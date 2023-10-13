@@ -2,17 +2,27 @@ class CommentsController < ApplicationController
   load_and_authorize_resource
   before_action :find_post
 
+  def index
+    @comments = @post.comments
+    respond_to do |format|
+      format.html
+      format.json { render json: @comments }
+    end
+  end
+
   def create
     @comment = @post.comments.build(comment_params)
     @comment.user = current_user
 
-    if @comment.save
-      flash[:success] = 'Comment created successfully!'
-    else
-      flash[:error] = 'Error creating the comment.'
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to user_post_path(@comment.post.author_id, @comment.post.id) }
+        format.json { render json: @comment, status: :created }
+      else
+        format.html { render :new }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
     end
-
-    redirect_to user_post_path(@post.author, @post)
   end
 
   def new
