@@ -76,14 +76,7 @@ BlogApp is a web application that allows users to create, update, and interact w
 
 <summary>Database</summary>
   <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-  </ul>
-</details>
-
-<details>
-<summary>Postgresql</summary>
-  <ul>
-    <li><a href="https://www.mysql.com/">PSQL</a></li>
+    <li><a href="https://www.postgresql.org">PostgreSQL</a></li>
   </ul>
 </details>
 
@@ -101,18 +94,69 @@ BlogApp is a web application that allows users to create, update, and interact w
   </ul>
 </details>
 
+<summary>RSwag</summary>
+  <ul>
+    <li><a href="https://swagger.io/">RSwag</a></li>
+  </ul>
+</details>
+
+<summary>Devise</summary>
+  <ul>
+    <li><a href="https://github.com/heartcombo/devise">Devise</a></li>
+  </ul>
+</details>
+
+<details>
+<summary>Cancan</summary>
+  <ul>
+    <li><a href="https://github.com/CanCanCommunity/cancancan">Cancan</a></li>
+  </ul>
+</details>
+
+
 
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 > Data Model
+
 > Validations
+
 > Model Spec-Tests
+
 > Controller Specs
+
 > Create User
+
 > Create Post
+
 > Add a Comment Post
+
+> Delete Post as Post Owner
+
+> Delete Comment as Post Owner or Comment Owner
+
 > View Lists: Post List | User List | Comment List | Post Details
+
+> Confirm User Email Address before Login
+
+> User Authentication
+
+> User Authorization
+
+> User Signin
+
+> User Signout
+
+> User Signin with Email
+
+> User Signin with Username
+
+> User Signin with Username or Email
+
+> Api Documentation
+
+
 
 
 <!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
@@ -177,6 +221,11 @@ To run tests, run the following command:
   Rspec spec  or bundle exec rspec spec
 ```
 
+### API Documentation
+
+```sh
+ http://localhost:3000/api-docs/index.html
+```
 
 <!-- ### Deployment
 
@@ -216,8 +265,7 @@ Example:
 ## 🔭 Future Features <a name="future-features"></a>
 
 
-> Implement View
-> Implement Authentication for User Signing And Singout requests
+> Deploy Application to Heroku
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
